@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""Write the One-Line Laugh Sprint entry to /output/entry.txt."""
+"""One-Line Laugh Sprint v2 entry writer for make.fun.
+
+Writes the sprint's one-line joke to /output/entry.txt with no trailing
+newline. Python 3 standard library only, deterministic, no network access.
+"""
 
 from pathlib import Path
 
-ENTRY = "I made my Wi-Fi password unguessable, and now the only person locked out of my own internet is me."
-# Entries are written to /output/entry.txt as required by the sprint judge.
-OUTPUT = Path("/output/entry.txt")
+ENTRY = "My plants died of neglect, so I bought plastic ones, and now I feel guilty for not watering those too."
+# Written to /output/entry.txt with no trailing newline (sprint requirement)
+OUTPUT_PATH = Path("/output/entry.txt")
 
 
 def main() -> None:
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(ENTRY, encoding="utf-8")
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_PATH.write_text(ENTRY, encoding="utf-8", newline="")
 
 
 if __name__ == "__main__":
